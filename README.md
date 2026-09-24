@@ -26,6 +26,26 @@ Requirements on `PATH`: `notify-send` (libnotify) and `canberra-gtk-play`
 ## Install
 
 ```sh
+./install.sh
+```
+
+This symlinks `local-notify.ts` into `~/.config/opencode/plugins/` (honoring
+`XDG_CONFIG_HOME`), checks for `notify-send` / `canberra-gtk-play`, and sends a
+test notification. The symlink tracks this checkout, so a `git pull` is enough
+to update.
+
+Options:
+
+| Flag | Effect |
+| --- | --- |
+| `--copy` | Copy the file instead of symlinking (static snapshot) |
+| `--force` | Replace an existing plugin file/symlink |
+| `--no-test` | Skip the test notification |
+| `--uninstall` | Remove the plugin from the plugins dir |
+
+Or install manually:
+
+```sh
 mkdir -p ~/.config/opencode/plugins
 cp local-notify.ts ~/.config/opencode/plugins/local-notify.ts
 # or symlink to track this checkout:
